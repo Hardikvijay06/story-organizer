@@ -1,0 +1,106 @@
+:root {
+  /* HSL Color Palette - Dark Glassmorphism */
+  --hue: 250; /* Violet/Indigo base */
+  
+  --bg-app: hsl(var(--hue), 20%, 10%);
+  --bg-panel: hsla(var(--hue), 25%, 16%, 0.7);
+  --bg-panel-hover: hsla(var(--hue), 25%, 20%, 0.8);
+  
+  --text-primary: hsl(var(--hue), 10%, 95%);
+  --text-secondary: hsl(var(--hue), 10%, 70%);
+  --text-muted: hsl(var(--hue), 10%, 50%);
+  
+  --accent-primary: hsl(var(--hue), 70%, 60%);
+  --accent-glow: hsla(var(--hue), 70%, 60%, 0.3);
+  
+  --border-glass: hsla(var(--hue), 20%, 80%, 0.1);
+  --border-glass-strong: hsla(var(--hue), 20%, 80%, 0.2);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(280, 50%, 20%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(220, 50%, 20%, 0.3) 0px, transparent 50%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--bg-panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-md);
+}
+
+.glass-button {
+  background: hsla(var(--hue), 60%, 50%, 0.2);
+  border: 1px solid var(--border-glass-strong);
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.glass-button:hover {
+  background: hsla(var(--hue), 60%, 50%, 0.4);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.glass-input {
+  background: hsla(0, 0%, 0%, 0.2);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--border-glass-strong);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-glass-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
